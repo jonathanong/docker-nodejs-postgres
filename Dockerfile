@@ -10,6 +10,8 @@ RUN echo "deb http://apt.postgresql.org/pub/repos/apt/ precise-pgdg main" > /etc
 
 RUN apt-get update && apt-get install -y \
   nodejs \
+  make \
+  git \
   python-software-properties \
   software-properties-common \
   postgresql-$POSTGRESQL_VERSION \
