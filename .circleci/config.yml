@@ -1,0 +1,14 @@
+version: 2
+jobs:
+  build:
+    docker:
+      - image: jongleberry/docker-nodejs-postgres:latest
+        environment:
+          DATABASE_URL: postgres://pgrole:pgrole@localhost/pgdb?sslmode=disable
+          DATABASE_NAME: pgdb
+    working_directory: ~/vacation-server
+    steps:
+      - checkout
+      - dropdb pgdb --if-exists
+      - createdb pgdb
+      - psql -d pgdb -c "CREATE EXTENSION IF NOT EXISTS postgis; CREATE EXTENSION IF NOT EXISTS citext; CREATE EXTENSION IF NOT EXISTS pgcrypto;"
