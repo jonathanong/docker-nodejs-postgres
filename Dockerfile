@@ -14,6 +14,7 @@ RUN apt-get install -y \
   make \
   git \
   gcc \
+  g++ \
   python-software-properties \
   software-properties-common \
   postgresql-$POSTGRESQL_VERSION \
