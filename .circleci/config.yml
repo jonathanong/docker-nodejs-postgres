@@ -9,6 +9,6 @@ jobs:
     working_directory: ~/vacation-server
     steps:
       - checkout
-      - run: dropdb pgdb --if-exists
-      - run: createdb pgdb
+      # - run: dropdb pgdb --if-exists
+      # - run: createdb pgdb
       - run: psql -d pgdb -c "CREATE EXTENSION IF NOT EXISTS postgis; CREATE EXTENSION IF NOT EXISTS citext; CREATE EXTENSION IF NOT EXISTS pgcrypto;"
