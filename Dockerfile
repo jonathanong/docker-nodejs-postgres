@@ -25,3 +25,8 @@ USER postgres
 RUN service postgresql start && \
   psql -c "create database pgdb;" && \
   psql -c "create role pgrole with login password 'pgrole'; grant all privileges on database pgdb to pgrole;"
+
+USER root
+
+RUN node --version
+RUN psql --version
