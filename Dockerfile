@@ -13,7 +13,6 @@ RUN apt-get install -y \
   nodejs \
   make \
   git \
-  gcc \
   g++ \
   python-software-properties \
   software-properties-common \
