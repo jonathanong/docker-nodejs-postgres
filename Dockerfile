@@ -16,14 +16,4 @@ RUN apt-get install -y \
   g++ \
   python-software-properties \
   software-properties-common \
-  postgresql-$POSTGRESQL_VERSION \
-  postgresql-client-$POSTGRESQL_VERSION \
-  postgresql-contrib-$POSTGRESQL_VERSION
-
-RUN echo "host all all 0.0.0.0/0 md5" >> /etc/postgresql/$POSTGRESQL_VERSION/main/pg_hba.conf
-RUN echo "listen_addresses='*'" >> /etc/postgresql/$POSTGRESQL_VERSION/main/postgresql.conf
-
-USER postgres
-RUN service postgresql start && \
-  psql -c "create database pgdb;" && \
-  psql -c "create role pgrole with login password 'pgrole'; grant all privileges on database pgdb to pgrole;"
+  postgresql-client-$POSTGRESQL_VERSION
